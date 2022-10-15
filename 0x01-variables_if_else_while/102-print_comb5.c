@@ -37,11 +37,11 @@ int main(void)
 			
 			putchar((b % 10) + n1);
 			
-			if (a != 98 || b != 99);
+		if (a != 98 || b != 99);
 			
 			{
-				putchar(com);
-				putchar(32);
+			putchar(com);
+			putchar(32);
 			}
 			
 			b += 1;
