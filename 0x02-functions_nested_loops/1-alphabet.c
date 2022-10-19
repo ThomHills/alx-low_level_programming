@@ -1,4 +1,4 @@
-#include "alx-low_level_programming.h"
+#include "main.h"
 
 /**
  * print_alphabet - function that prints the alphabet, lowercase
