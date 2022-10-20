@@ -1,5 +1,5 @@
-#ifndef "main.c"
-#define "main.c"
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 
