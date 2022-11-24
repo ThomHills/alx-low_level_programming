@@ -1,46 +1,48 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
-
+#include <stdlib.h>
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
-int main(void)
+  * _strlen - gets length of the string
+  * @s: string
+  * Return: length of the string
+  */
+int _strlen(const char *s)
 {
-	list_t *head;
+	int i;
 
-	head = NULL;
-	add_node(&head, "Alexandro");
-	add_node(&head, "Asaia");
-	add_node(&head, "Augustin");
-	add_node(&head, "Bennett");
-	add_node(&head, "Bilal");
-	add_node(&head, "Chandler");
-	add_node(&head, "Damian");
-	add_node(&head, "Daniel");
-	add_node(&head, "Dora");
-	add_node(&head, "Electra");
-	add_node(&head, "Gloria");
-	add_node(&head, "Joe");
-	add_node(&head, "John");
-	add_node(&head, "John");
-	add_node(&head, "Josquin");
-	add_node(&head, "Kris");
-	add_node(&head, "Marine");
-	add_node(&head, "Mason");
-	add_node(&head, "Praylin");
-	add_node(&head, "Rick");
-	add_node(&head, "Rick");
-	add_node(&head, "Rona");
-	add_node(&head, "Siphan");
-	add_node(&head, "Sravanthi");
-	add_node(&head, "Steven");
-	add_node(&head, "Tasneem");
-	add_node(&head, "William");
-	add_node(&head, "Zee");
-	print_list(head);
-	return (0);
+	for (i = 0; s[i]; i++)
+		;
+	return (i);
+}
+/**
+  * add_node - add new nodes to the list
+  * @head: current place in the list
+  * @str: string to add to the head
+  * Return: pointer to current position in list
+  */
+list_t *add_node(list_t **head, const char *str)
+{
+	int i, len;
+	char *content;
+	list_t *new;
+
+	if (str == NULL || head == NULL)
+		return (NULL);
+	len = _strlen(str);
+	new = *head;
+	content = malloc((len + 1) * sizeof(char));
+	if (content == NULL)
+		return (NULL);
+	for (i = 0; str[i]; i++)
+		content[i] = str[i];
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+	{
+		free(content);
+		return (NULL);
+	}
+	new->str = content;
+	new->len = len;
+	new->next = *head;
+	*head = new;
+	return (new);
 }
